@@ -6,7 +6,7 @@ This project predicts engine Remaining Useful Life (RUL) from NASA CMAPSS FD001 
 
 1. Data ingestion: parse train/test text files and create processed CSVs.
 2. Prepare base model: structural stage for parity with the reference project.
-3. Training: fit a RandomForest regressor and save model artifacts.
+3. Training: fit a CNN-LSTM model and save model/scaler artifacts.
 4. Evaluation: compute RMSE and MAE and save to scores.json.
 
 ## Run locally

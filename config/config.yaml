@@ -17,13 +17,13 @@ prepare_callbacks:
 training:
   root_dir: artifacts/training
   train_data_path: artifacts/data_ingestion/train_processed.csv
-  model_path: artifacts/training/model.pkl
+  model_path: artifacts/training/model.h5
   feature_columns_path: artifacts/training/feature_columns.json
 
 evaluation:
   root_dir: artifacts/evaluation
   test_data_path: artifacts/data_ingestion/test_processed.csv
   rul_data_path: Data/RUL_FD001.txt
-  model_path: artifacts/training/model.pkl
+  model_path: artifacts/training/model.h5
   feature_columns_path: artifacts/training/feature_columns.json
   metric_file_path: scores.json

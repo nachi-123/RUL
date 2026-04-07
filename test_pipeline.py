@@ -14,7 +14,8 @@ STAGES = [
 EXPECTED_OUTPUTS = [
     "artifacts/data_ingestion/train_processed.csv",
     "artifacts/data_ingestion/test_processed.csv",
-    "artifacts/training/model.pkl",
+    "artifacts/training/model.h5",
+    "artifacts/training/scaler.pkl",
     "artifacts/training/feature_columns.json",
     "scores.json",
 ]

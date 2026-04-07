@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from RUL_prediction.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
+from RUL_prediction.constants import CONFIG_FILE_PATH
 from RUL_prediction.entity.config_entity import (
     DataIngestionConfig,
     EvaluationConfig,
@@ -15,10 +15,8 @@ class ConfigurationManager:
     def __init__(
         self,
         config_filepath: Path = CONFIG_FILE_PATH,
-        params_filepath: Path = PARAMS_FILE_PATH,
     ):
         self.config = read_yaml(config_filepath)
-        self.params = read_yaml(params_filepath)
         create_directories([Path(self.config.artifacts_root)])
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
@@ -46,7 +44,6 @@ class ConfigurationManager:
 
     def get_training_config(self) -> TrainingConfig:
         config = self.config.training
-        params = self.params
         create_directories([Path(config.root_dir)])
 
         return TrainingConfig(
@@ -54,9 +51,6 @@ class ConfigurationManager:
             train_data_path=Path(config.train_data_path),
             model_path=Path(config.model_path),
             feature_columns_path=Path(config.feature_columns_path),
-            random_state=params.RANDOM_STATE,
-            n_estimators=params.N_ESTIMATORS,
-            max_depth=params.MAX_DEPTH,
         )
 
     def get_evaluation_config(self) -> EvaluationConfig:

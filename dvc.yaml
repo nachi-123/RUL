@@ -26,15 +26,11 @@ stages:
       - src/RUL_prediction/pipeline/stage_03_training.py
       - src/RUL_prediction/components/training.py
       - config/config.yaml
-      - params.yaml
       - artifacts/data_ingestion/train_processed.csv
       - artifacts/prepare_base_model
-    params:
-      - RANDOM_STATE
-      - N_ESTIMATORS
-      - MAX_DEPTH
     outs:
-      - artifacts/training/model.pkl
+      - artifacts/training/model.h5
+      - artifacts/training/scaler.pkl
       - artifacts/training/feature_columns.json
 
   evaluation:
@@ -45,7 +41,8 @@ stages:
       - config/config.yaml
       - artifacts/data_ingestion/test_processed.csv
       - Data/RUL_FD001.txt
-      - artifacts/training/model.pkl
+      - artifacts/training/model.h5
+      - artifacts/training/scaler.pkl
       - artifacts/training/feature_columns.json
     metrics:
       - scores.json:

@@ -2,10 +2,9 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY . .
-
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 10000
+COPY . .
 
-CMD ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:${PORT:-10000}"]
+CMD ["python3", "application.py"]  # or your main file name

@@ -89,7 +89,7 @@ class Training:
         model.fit(X_train, y_train, epochs=25, batch_size=200, callbacks=[early_stop], verbose=1)
         
         # Save model
-        model_path = str(self.config.model_path).replace('.pkl', '.h5')
+        model_path = str(self.config.model_path)
         model.save(model_path)
         
         save_json(self.config.feature_columns_path, {"feature_columns": feature_columns})

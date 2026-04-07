@@ -28,9 +28,6 @@ class TrainingConfig:
     train_data_path: Path
     model_path: Path
     feature_columns_path: Path
-    random_state: int
-    n_estimators: int
-    max_depth: int
 
 
 @dataclass(frozen=True)
