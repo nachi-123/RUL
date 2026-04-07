@@ -1,3 +1,10 @@
+import sys
+from pathlib import Path
+
+# Ensure src/ is importable when running from project root.
+SRC_ROOT = Path(_file_).resolve().parent / "src"
+if str(SRC_ROOT) not in sys.path:
+   sys.path.insert(0, str(SRC_ROOT))
 from RUL_prediction import logger
 from RUL_prediction.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from RUL_prediction.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline

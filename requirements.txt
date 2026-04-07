@@ -1,15 +1,15 @@
 -e .
-numpy
-pandas
+ensure
 Flask
 Flask-Cors
-gunicorn
 dvc
 dvc[gdrive]
+gunicorn
+joblib
+numpy
+pandas
 python-box
 PyYAML
-ensure
 scikit-learn
-joblib
-
+setuptools
 tensorflow
